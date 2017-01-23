@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<script>
+    var error = "";
+    var prompt1 = "";
+    var prompt2 = "";
+    var prompt3 = "";
+    var prompt4 = "";
+    var prompt5 = "";
+    var language = prompt("Write i for Italian language, e for English langugae / Scrivi i per la lingua Italiana, e per la lingua Inglese")
+    if (language == "e") {
+        error = "error";
+        prompt1 = "Write c if you need the cathetus or h if you need the hypotenuse";
+        prompt2 = "Write the first cathetus";
+        prompt3 = "Write the second cathetus";
+        prompt4 = "Write the hypotenuse";
+        prompt5 = "Write the cathetus";
+    } 
+    else if (language == "i") {
+        error = "errore";
+        prompt1 = "Scrivi c se ti serve il cateto o h se ti serve l'ipotenusa";
+        prompt2 = "Scrivi il primo cateto";
+        prompt3 = "Scrivi il secondo cateto";
+        prompt4 = "Scrivi l'ipotenusa";
+        prompt5 = "Scrivi il cateto";
+    }
+    else {
+        document.write("error / errore");
+        end();
+    }
+
+    
+    
+    var cateto_o_ipotenusa = prompt(prompt1)
+    if (cateto_o_ipotenusa == "h") {
+        var cateto = prompt(prompt2)
+        var cateto2 = prompt(prompt3)
+        document.write(ipotenusa_finder(cateto, cateto2));
+    }
+    else if (cateto_o_ipotenusa == "c"){
+        var ipotenusa = prompt(prompt4)
+        var cateto = prompt(prompt5)
+        document.write(cateto_finder(cateto, ipotenusa));
+
+    }
+    else {
+        document.write(error);
+    }
+    function ipotenusa_finder(cateto, cateto2) {
+        var ipotenusa_pow = Math.pow(cateto, 2) + Math.pow(cateto2, 2);
+        var ipotenusa_sqrt = Math.sqrt(ipotenusa_pow);
+        return ipotenusa_sqrt;  
+    }
+    function cateto_finder(cateto, ipotenusa) {
+        var ipotenusa_pow2 = Math.pow(ipotenusa, 2) - Math.pow(cateto, 2);
+        if (ipotenusa_pow2 < 0) {
+            return error;
+        } 
+        else {
+            var ipotenusa_sqrt2 = Math.sqrt(ipotenusa_pow2);
+            return ipotenusa_sqrt2;  
+        }
+
+        
+    }
+</script>
+</html>
